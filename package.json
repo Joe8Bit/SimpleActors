@@ -1,4 +1,5 @@
-{ "name": "simpleactors"
+{ 
+  "name": "simpleactors"
 , "description": "Simple Actor Model for Node.js, Work in Progress"
 , "keywords": [ "actormodel", "nodejs", "javascript" ]
 , "version": "0.0.2"
