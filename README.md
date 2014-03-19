@@ -8,14 +8,11 @@ See [Actor Model in Wikipedia](http://en.wikipedia.org/wiki/Actor_model).
 
 This implementation is inspired in [Akka actor implementation](http://doc.akka.io/docs/akka/2.1.0/general/index.html).
 
-This model encourage the writing of application consisting in actors that collaborates using message passing.
-In this module, method invocation is like a message passing operation, that not returns value. The application
-that uses actor model doesn't need continuation callbacks: each agent receives messages as method invocation, 
-and produces new messages calling other agent methods.
+The actor model encourages the writing of applications that utlise message passing In this module, method invocation is like a message passing operation, that doesn't return a value. An application that uses the actor model doesn't need continuation callbacks: each agent receives messages as method invocation's, and produces new messages calling other agent methods.
 
 ## Installation
 
-Via npm on Node:
+Via NPM on Node:
 
 ```
 npm install simpleactors
@@ -34,12 +31,12 @@ Create a system application:
 var system = simpleactors.create('webcrawler');
 ```
 
-Create an object of class `Downloader`, wrap it as an actor, and returns an actor reference:
+Create an object of class `Downloader`, wrap it as an actor, and return an actor reference:
 ```js
 var ref = system.actorOf(Downloader, 'downloader');
 ```
 
-Alternatively, you can use an already create object as first parameter:
+Alternatively, you can use an already instantiated object as the first parameter:
 ```js
 var downloader = new Downloader();
 var ref = system.actorOf(downloader, 'downloader');
@@ -53,8 +50,8 @@ ref.tell(msg);
 ```
 
 An object wrapped as an actor has:
-- `context`: Actor context, with information about the actor environment.
-- `self`: This actor reference.
+- `context`: The actor context, with information about the actor environment.
+- `self`: The actor context reference (`this`).
 
 It should implement the function:
 - `receive(msg)`: Process an incoming message
